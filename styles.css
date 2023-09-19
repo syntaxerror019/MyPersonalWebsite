@@ -216,6 +216,7 @@ header {
   cursor: pointer;
   background-color: var(--white-color-alt);
   position: relative;
+  with: 800;
 }
 .product::before {
   content: "";
@@ -589,4 +590,128 @@ input[type="submit"]:hover {
     color: hsla(0, 0%, 98%, 0.322);
     font-size: 0.8rem;
   }
+}
+
+
+
+
+/* Add this CSS for the project section */
+.section-3 {
+    display: flex;
+    flex-direction: column; /* Stack projects vertically */
+    align-items: center;
+}
+
+.product {
+    cursor: pointer;
+    background-color: var(--white-color-alt);
+    position: relative;
+    margin-bottom: 2rem; /* Add space between stacked projects */
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* Add a subtle hover effect */
+}
+
+.product:hover {
+    transform: scale(1.05); /* Scale up the project on hover */
+}
+
+.product::before {
+    content: "";
+    background-image: linear-gradient(
+        to bottom,
+        hsla(29, 72%, 83%, 0.438),
+        hsla(9, 94%, 61%, 0.507)
+    );
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1; /* Place the gradient background behind the content */
+}
+
+.product h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem; /* Add space between image and title */
+}
+
+.product p {
+    font-size: 1rem;
+    margin-top: 0.5rem; /* Add space between title and description */
+}
+/* Style for the main content container */
+.container {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    color: var(--white-color); /* Use the white color from your theme */
+}
+
+/* Style for the h2 headings */
+h2 {
+    font-size: 2rem;
+    margin-left: 0;
+    margin-top: 1.5rem; /* Add some top margin for spacing */
+    color: var(--primary-color); /* Use the primary color from your theme */
+}
+
+/* Style for the paragraphs */
+p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-top: 0.5rem; /* Add spacing between paragraphs */
+}
+
+/* Style for links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style for code blocks */
+pre code {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 10px;
+    display: block;
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+/* Style for lists */
+ul, ol {
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+}
+
+/* Style for checkboxes */
+.todo-list__label input[type="checkbox"] {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Style for images */
+.image_resized {
+    width: 100%; /* Make images responsive */
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 1rem 0;
+}
+.product {
+    cursor: pointer;
+    background-color: var(--white-color-alt);
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    width: 800px; /* Set the desired width */
+    
+    /* Add any additional styles as needed */
 }
