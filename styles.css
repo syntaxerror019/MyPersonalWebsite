@@ -889,3 +889,102 @@ ul, ol {
 .contact-form label.required {
     font-weight: bold;
 }
+ .trig-input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+
+        .trig-input-label {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .trig-input-unit {
+            font-size: 1rem;
+        }
+
+        .trig-result {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .angle-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .angle-input {
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+
+
+
+        /* Paste your CSS styles here */
+
+        /* Custom styles for the trigonometric calculator */
+        .trig-calculator {
+            background-color: var(--dark-color);
+            padding: 2rem;
+            color: var(--white-color);
+            text-align: center;
+        }
+
+        .trig-input {
+            width: 100%;
+            max-width: 400px;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .trig-button {
+            background: linear-gradient(var(--primary-color), var(--primary-color-alt));
+            color: var(--white-color);
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .trig-result {
+            font-size: 2rem;
+            margin-top: 1rem;
+        }
+
+
+        /* Paste your CSS styles here */
+
+        /* Custom styles for the trigonometric calculator */
+        .trig-calculator {
+            background-color: var(--dark-color);
+            padding: 2rem;
+            color: var(--white-color);
+            text-align: center;
+        }
+
+        .trig-input {
+            width: 100%;
+            max-width: 400px;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .trig-button {
+            background: linear-gradient(var(--primary-color), var(--primary-color-alt));
+            color: var(--white-color);
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .trig-result {
+            font-size: 2rem;
+            margin-top: 1rem;
+        }
