@@ -943,5 +943,6 @@ ul, ol {
 
 .center-element p {
             font-size: 24px;
+               left: 50%;
             font-weight: bold;
         }
