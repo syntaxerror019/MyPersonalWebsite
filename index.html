@@ -10,7 +10,6 @@
         <li class="nav-item"><a href="projects.html" class="nav-link">PROJECTS</a></li>
         <li class="nav-item"><a href="documentation.html" class="nav-link">DOCUMENTATION</a></li>
         <li class="nav-item"><a href="contact.html" class="nav-link">CONTACT</a></li>
-        <button id="themeButton" class="nav-item"><a href="#" class="nav-link">Toggle Theme</a></button>
       </ul>
     </nav>
     <div class="menu-toggle">
@@ -27,47 +26,31 @@
           I am a junior developer looking to expand my profile. check out my projects and consider contacting me!
         </h2>
       </div>
-       <!-- offer 2 -->
-      <div class="offer offer-2">
-        <div class=" offer-desc-2">
-          <h2 class="offer-title">Python Code Review</h2>
-          <p class="offer-hook">Get skilled feedback, optimizations and improvements</p>
-          <li class="nav-item"><a href="pycode.html" class="nav-link">REACH OUT</a></li> 
-        </div>
+      <div class="home-computer-container">
       </div>
-    
+     <script src="script.js"></script>
     </section>
+
+    <!-- OFFER SECTION -->
+    <section class="container section-2">
+      
+      <!-- offer 2 -->
       <div class="offer offer-2">
-        <div class=" offer-desc-2">
-          <h2 class="offer-title">Check Out My GitHub Page & Drop Some Repos a Star</h2>
+        <img src="https://github.com/smoke-wolf/GitHub-Package-Manager/blob/main/Screen%20Shot%202023-09-18%20at%2010.43.30%20PM.png?raw=true" alt="First Js" class="offer-img offer-2-img">
+        <div class="offer-description offer-desc-2">
+          <h2 class="offer-title">Js Website Mirroring</h2>
+          <p class="offer-hook">Simple website forwarding tool / mirroring.</p>
           <li class="nav-item"><a href="projects.html" class="nav-link">PROJECTS</a></li> 
         </div>
       </div>
-     <section class="container section-1">
-       <div class="offer offer-2">
-        <div class="offer-desc-2">
-          <h2 class="offer-title">Front End Contracts</h2>
-          <p class="offer-hook">Reach out for frontend designs, styling, review, and modifications.</p>
-          <li class="nav-item"><a href="pycode.html" class="nav-link">REACH OUT</a></li> 
-        </div>
-      </div>
-      <div class="slogan2">
-        <h1 class="company-title">What I Do</h1>
-        <h2 class="wai-slogan">
-          I have experience in and with html, css, javascript, python, bash, shellcode, and c. I am available for site development and am currently learning fullstack and backend scaling.
-        </h2>
-      </div>
-     
-       <!-- offer 2 -->
-      
-    
     </section>
 
     <!-- SUBSCRIBE SECTION-->
     <section class="container section-5">
       <h2 class="subscribe-input-label">NEWSLETTER</h2>
       <div class="subscribe-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdqAcERkYruftXcJ_Fh5XFp6ZyS6zuNqChl--vLC51SAq3Jbw/viewform?embedded=true" width="640" height="450" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <input type="text" id="email-subscribe" placeholder="Email address...">
+        <input type="submit" value="SUBSCRIBE">
       </div>
     </section>
   </main>
@@ -123,13 +106,15 @@
   </footer>
 </body>
 
+<button id="themeButton">Toggle Theme</button>
+   
 
- <button id="themeButton">Toggle Theme</button>
-    <script>
+
+<script>
         const themeButton = document.getElementById("themeButton");
-        const root = document.documentElement;
 
         themeButton.addEventListener("click", () => {
+            const root = document.documentElement;
             if (root.classList.contains("dark_theme")) {
                 root.classList.remove("dark_theme");
                 root.classList.add("cool_theme");
@@ -138,9 +123,6 @@
                 root.classList.add("subtle_theme");
             } else if (root.classList.contains("subtle_theme")) {
                 root.classList.remove("subtle_theme");
-                root.classList.add("ocean_theme");
-            } else if (root.classList.contains("ocean_theme")) {
-                root.classList.remove("ocean_theme");
             } else {
                 root.classList.add("dark_theme");
             }
