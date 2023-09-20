@@ -1,0 +1,98 @@
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+ <link rel="stylesheet" type="text/css" href="styles.css">
+<body>
+  <header>
+    <div class="company-logo">Reach Out</div>
+    <nav class="navbar">
+      <ul class="nav-items">
+        <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
+        
+        <li class="nav-item"><a href="projects.html" class="nav-link">PROJECTS</a></li>
+        <li class="nav-item"><a href="documentation.html" class="nav-link">DOCUMENTATION</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">CONTACT</a></li>
+        <button id="themeButton" class="nav-item"><a href="#" class="nav-link">Toggle Theme</a></button>
+      </ul>
+    </nav>
+    <div class="menu-toggle">
+      <i class="bx bx-menu"></i>
+      <i class="bx bx-x"></i>
+    </div>
+  </header>
+  <div class="iframe-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd_o_EJJuy7JgPf2RZpqpp90JeenDua72l8_gjjDFOR62mDZA/viewform?embedded=true" width="640" height="1150" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  <footer>
+    <div class="container top-footer">
+      <!-- footer item 1 -->
+      <div class="footer-item">
+        <h2 class="footer-title">GitHub</h2>
+        <div class="footer-items">
+          <a href="https://github.com/smoke-wolf">Smoke-Wolf</a>
+          
+          
+        </div>
+      </div>
+      <!-- footer item 2 -->
+      <div class="footer-item">
+        <h2 class="footer-title">SERVICES</h2>
+        <div class="footer-items">
+          <h3>Frontend (HTML, CSS, JS)</h3>
+          <h3>Python Code Review</h3>
+          <h3>Bash & Shell Code</h3>
+          <h3>English Support</h3>
+          <h3>Tutoring & Lessons</h3>
+        </div>
+      </div>
+      <!-- footer item 3 -->
+      <div class="footer-item">
+        <h2 class="footer-title">ASSOCIATES</h2>
+        <div class="footer-items">
+          <h3>Alfred Bird</h3>
+          <h3>SyntaxErr0r</h3>
+          <h3>TheDevConner</h3>
+          
+        </div>
+      </div>
+      <!-- footer item 4 -->
+      <div class="footer-item">
+        <h2 class="footer-title">REPOS</h2>
+        <div class="footer-items">
+          <a href="https://github.com/smoke-wolf/GitHub-Package-Manager">GitHub-Package-Manager</a><br>
+          <a href="https://github.com/smoke-wolf/TouchScript">TouchScript</a><br>
+          <a href="https://github.com/smoke-wolf/PyPipScan">PyPipScan</a><br>
+          <a href="https://github.com/smoke-wolf/ToolKit">ToolKit</a><br>
+          <a href="https://github.com/smoke-wolf/BlackTip">BlackTip</a><br>
+          <a href="https://github.com/smoke-wolf/HeyCheckThisOut">HeyCheckThisOut</a><br>
+        </div>
+      </div>
+    </div>
+    <div class="container end-footer">
+      <div class="copyright">copyright © 2021 - Present • <b>Maliq Barnard</b></div>
+      <a class="designer" href="#">Maliq Barnard</a>
+    </div>
+  </footer>
+</body>
+
+
+ <button id="themeButton">Toggle Theme</button>
+    <script>
+        const themeButton = document.getElementById("themeButton");
+        const root = document.documentElement;
+
+        themeButton.addEventListener("click", () => {
+            if (root.classList.contains("dark_theme")) {
+                root.classList.remove("dark_theme");
+                root.classList.add("cool_theme");
+            } else if (root.classList.contains("cool_theme")) {
+                root.classList.remove("cool_theme");
+                root.classList.add("subtle_theme");
+            } else if (root.classList.contains("subtle_theme")) {
+                root.classList.remove("subtle_theme");
+                root.classList.add("ocean_theme");
+            } else if (root.classList.contains("ocean_theme")) {
+                root.classList.remove("ocean_theme");
+            } else {
+                root.classList.add("dark_theme");
+            }
+        });
+    </script>
