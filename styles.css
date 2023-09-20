@@ -126,13 +126,14 @@ header {
 .slogan .company-title {
   background: -webkit-linear-gradient(
     120deg,
+    
     var(--primary-color-alt),
     var(--primary-color)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: 2rem;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 600;
 }
 .slogan .wai-slogan {
@@ -450,12 +451,13 @@ input[type="submit"]:hover {
   }
   .slogan .title {
     max-width: 30rem;
-    font-size: 1.8rem;
+    font-size: 4.8rem;
+    
     letter-spacing: 0.5rem;
   }
   .slogan .company-slogan {
     max-width: 20rem;
-    font-size: 1.3rem;
+    font-size: 4.8rem;
   }
   /* -------- OFFER SECTION ------------- */
   .section-2 {
