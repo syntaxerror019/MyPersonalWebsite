@@ -147,6 +147,7 @@ header {
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.8rem;
+  text-allign
 }
 
 /* -------- OFFER SECTION ------------- */
@@ -443,6 +444,9 @@ input[type="submit"]:hover {
     justify-content: space-between;
     grid-template-columns: 1fr 1fr;
     padding: 10rem 5rem 0 5rem;
+     position: absolute;
+            left: 61%;
+            transform: translateX(-50%);
   }
   .slogan .title {
     max-width: 30rem;
