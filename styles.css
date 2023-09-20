@@ -940,3 +940,8 @@ ul, ol {
 .contact-form label.required {
     font-weight: bold;
 }
+
+.center-element p {
+            font-size: 24px;
+            font-weight: bold;
+        }
