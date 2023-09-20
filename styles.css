@@ -9,7 +9,6 @@
 }
 
 /* ================= VARIABLE ================ */
-
 :root {
   --primary-color: hsl(9, 94%, 61%);
   --primary-color-alt: hsl(28, 72%, 83%);
@@ -19,51 +18,6 @@
   --white-color: #fbfbfb;
   --white-color-alt: hsl(12, 14%, 93%);
   --dark-color: hsl(300, 100%, 0%);
-}
-:root.subtle {
-  --primary-color: #7110ad;
-  --primary-color-alt: #52183f;
-  --second-color: #151a24;
-  --second-color-alt: #173033;
-  --third-color: #142f33;
-  --white-color: #fbfbfb;
-  --white-color-alt: hsl(12, 14%, 93%);
-  --dark-color: hsl(300, 100%, 0%);
-}
-
-
-:root.ocean_theme {
-  --primary-color: hsl(200, 60%, 55%);
-  --primary-color-alt: hsl(200, 60%, 65%);
-  --second-color: #115173;
-  --second-color-alt: hsla(220, 33%, 15%, 80%);
-  --third-color: hsl(220, 36%, 10%);
-  --white-color: #f0f5ff;
-  --white-color-alt: hsl(0, 0%, 85%);
-  --dark-color: hsl(0, 0%, 5%);
-}
-
-:root.dark_theme {
-  --primary-color: hsl(209, 34%, 30%);
-  --primary-color-alt: hsl(209, 34%, 40%);
-  --second-color: #1f2430;
-  --second-color-alt: hsla(220, 33%, 25%, 80%);
-  --third-color: hsl(220, 36%, 20%);
-  --white-color: #ffffff;
-  --white-color-alt: hsl(0, 0%, 98%);
-  --dark-color: hsl(0, 0%, 10%);
-}
-
-
-:root.cool_theme {
-  --primary-color: hsl(240, 80%, 60%);
-  --primary-color-alt: hsl(240, 80%, 70%);
-  --second-color: #192841;
-  --second-color-alt: hsla(220, 33%, 15%, 80%);
-  --third-color: hsl(220, 36%, 10%);
-  --white-color: #e0e0e0;
-  --white-color-alt: hsl(0, 0%, 85%);
-  --dark-color: hsl(0, 0%, 5%);
 }
 
 /* ================= BASE ==================== */
@@ -88,7 +42,7 @@ img {
 body {
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
-  background-color: var(--second-color);
+  background-color: black;
   
 }
 
@@ -165,15 +119,14 @@ header {
 .section-1 {
   background-color: var(--dark-color);
   display: grid;
-  max-width: 2000px;
-  
+  max-width: 800px;
 }
 /* .home-computer-container {} */
 
 .slogan .company-title {
   background: -webkit-linear-gradient(
     120deg,
-    var(--second-color-alt),
+    var(--primary-color-alt),
     var(--primary-color)
   );
   -webkit-background-clip: text;
@@ -185,7 +138,7 @@ header {
 .slogan .wai-slogan {
   background: -webkit-linear-gradient(
     120deg,
-    var(--second-color-alt),
+    var(--primary-color-alt),
     var(--primary-color)
   );
   -webkit-background-clip: text;
@@ -196,32 +149,6 @@ header {
   line-height: 1.8rem;
 }
 
-.slogan2 .company-title {
-  background: -webkit-linear-gradient(
-    120deg,
-    var(--second-color-alt),
-    var(--primary-color)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-top: 2rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-.slogan2 .wai-slogan {
-  background: -webkit-linear-gradient(
-    120deg,
-    var(--second-color-alt),
-    var(--primary-color)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.8rem;
-  
-}
 /* -------- OFFER SECTION ------------- */
 .section-2 {
   margin: 2rem 0;
@@ -543,7 +470,7 @@ input[type="submit"]:hover {
 
 
   .offer-1 {
-    
+    background-color: black;
     grid-template-areas: "offer-1-img offer-desc-1";
   }
   .offer-1 img {
@@ -554,11 +481,10 @@ input[type="submit"]:hover {
   }
   .offer-2 {
     grid-template-areas: "offer-desc-2 offer-2-img";
-    
-    max-width: 900px;
+    background: black;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    
   }
   .offer-1-img {
     grid-area: offer-1-img;
@@ -577,7 +503,6 @@ input[type="submit"]:hover {
   .offer-description .offer-title {
     font-size: 1.9rem;
     padding: 1.5rem 0 0.5rem 0;
-    
     
     
   }
@@ -964,30 +889,3 @@ ul, ol {
 .contact-form label.required {
     font-weight: bold;
 }
-
-
-/* Add these styles to your existing CSS */
-
-
-/* Smooth transition for theme change */
-:root {
-    transition: --primary-color 0.3s, --primary-color-alt 0.3s;
-}
-
-        /* Style the iframe container */
-        .iframe-container {
-            position: relative;
-            padding-bottom: 75%; /* You can adjust this value for the aspect ratio you want */
-            height: 0;
-            overflow: hidden;
-        }
-
-        /* Style the iframe */
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none; /* Remove iframe border */
-        }
