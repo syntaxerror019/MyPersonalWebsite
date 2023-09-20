@@ -19,6 +19,51 @@
   --white-color-alt: hsl(12, 14%, 93%);
   --dark-color: hsl(300, 100%, 0%);
 }
+:root.subtle {
+  --primary-color: #7110ad;
+  --primary-color-alt: #52183f;
+  --second-color: #151a24;
+  --second-color-alt: #173033;
+  --third-color: #142f33;
+  --white-color: #fbfbfb;
+  --white-color-alt: hsl(12, 14%, 93%);
+  --dark-color: hsl(300, 100%, 0%);
+}
+
+
+:root.ocean_theme {
+  --primary-color: hsl(200, 60%, 55%);
+  --primary-color-alt: hsl(200, 60%, 65%);
+  --second-color: #115173;
+  --second-color-alt: hsla(220, 33%, 15%, 80%);
+  --third-color: hsl(220, 36%, 10%);
+  --white-color: #f0f5ff;
+  --white-color-alt: hsl(0, 0%, 85%);
+  --dark-color: hsl(0, 0%, 5%);
+}
+
+:root.dark_theme {
+  --primary-color: hsl(209, 34%, 30%);
+  --primary-color-alt: hsl(209, 34%, 40%);
+  --second-color: #1f2430;
+  --second-color-alt: hsla(220, 33%, 25%, 80%);
+  --third-color: hsl(220, 36%, 20%);
+  --white-color: #ffffff;
+  --white-color-alt: hsl(0, 0%, 98%);
+  --dark-color: hsl(0, 0%, 10%);
+}
+
+
+:root.cool_theme {
+  --primary-color: hsl(240, 80%, 60%);
+  --primary-color-alt: hsl(240, 80%, 70%);
+  --second-color: #192841;
+  --second-color-alt: hsla(220, 33%, 15%, 80%);
+  --third-color: hsl(220, 36%, 10%);
+  --white-color: #e0e0e0;
+  --white-color-alt: hsl(0, 0%, 85%);
+  --dark-color: hsl(0, 0%, 5%);
+}
 
 /* ================= BASE ==================== */
 li {
