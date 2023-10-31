@@ -5,159 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <style>
-<style>
-  /* Reset styles for all elements */
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-  /* Set font family */
-  body, h2, p, a {
-    font-family: "Raleway", sans-serif;
-  }
+        h1 {
+            text-align: center;
+        }
 
-  /* General background and text color for body */
-  body {
-    background-color: black;
-    color: var(--white-color);
-    font-size: 1rem;
-  }
+        #admin-panel {
+            width: 50%;
+            margin: 0 auto;
+        }
 
-  /* List styles */
-  li {
-    list-style: none;
-  }
+        button {
+            display: block;
+            margin: 10px;
+            padding: 10px;
+        }
 
-  /* Link styles */
-  a {
-    text-decoration: none;
-    color: var(--primary-color);
-  }
-
-  /* Image styles */
-  img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Container styles */
-  .container {
-    max-width: 800px; /* Adjust the maximum width as needed */
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  /* Header styles */
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--dark-color);
-    padding: 1rem 2rem;
-  }
-
-  /* Navigation styles */
-  .company-logo, .nav-link {
-    background: -webkit-linear-gradient(
-      120deg,
-      var(--primary-color-alt),
-      var(--primary-color)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .nav-items {
-    display: flex;
-  }
-
-  .nav-item {
-    margin: 0 2rem;
-  }
-
-  .nav-link::before {
-    content: "";
-    background: linear-gradient(var(--primary-color), var(--primary-color-alt));
-    width: 100%;
-    height: 0.05rem;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 150ms;
-  }
-
-  .nav-link:hover::before {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
-  /* Main content styles */
-
-  /* Your section-1, section-2, section-3 styles... */
-
-  /* Subscribe section styles */
-  .subscribe-input-label {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.05rem;
-    color: var(--second-color);
-  }
-
-  input[type="text"] {
-    padding: 0 0.5rem;
-    font-size: 1.1rem;
-    width: 100%;
-    height: 3rem;
-    border: none;
-    background-color: hsl(220, 33%, 90%);
-    color: var(--second-color-alt);
-    transition: background-color 300ms;
-  }
-
-  input[type="text"]:focus {
-    outline: none;
-    background-color: hsl(220, 33%, 95%);
-  }
-
-  input[type="text"]::placeholder {
-    color: var(--second-color-alt);
-  }
-
-  input[type="submit"] {
-    cursor: pointer;
-    background-image: linear-gradient(
-      to top,
-      var(--primary-color-alt),
-      var(--primary-color)
-    );
-    color: var(--white-color-alt);
-    margin: 1rem 0;
-    border: none;
-    width: 100%;
-    height: 3rem;
-    font-size: 1.2rem;
-    transition: color 300ms;
-  }
-
-  input[type="submit"]:hover {
-    background-image: linear-gradient(
-      to bottom,
-      var(--primary-color-alt),
-      var(--primary-color)
-    );
-    color: var(--white-color);
-  }
-
-  /* Footer styles */
-
-  /* Your top-footer, end-footer, copyright, and designer styles... */
-</style>
-
+        #result {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
@@ -170,7 +41,6 @@
     </div>
     <div id="result"></div>
     <script>
-        // Extract username and authToken from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
         const authToken = urlParams.get('token');
@@ -184,23 +54,17 @@
             buttons.forEach(button => {
                 button.addEventListener('click', () => {
                     const endpoint = button.id;
-
-                    // Construct the URL with username and authToken
                     const url = `https://hello2022isthe3nd.000webhostapp.com/del.php/?username=${username}&token=${authToken}&endpoint=${endpoint}`;
 
-                    // Make an AJAX request to the constructed URL
                     const xhr = new XMLHttpRequest();
                     xhr.open("GET", url, true);
 
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4) {
                             if (xhr.status === 200) {
-                                // Display the response data with improved formatting
                                 const response = JSON.parse(xhr.responseText);
-                                resultDiv.innerHTML = `<h2>${button.textContent}:</h2>
-                                                    <p>${response.data}</p>`;
+                                resultDiv.innerHTML = `<h2>${button.textContent}:</h2><p>${response.data}</p>`;
                             } else {
-                                // Request failed, display an error message
                                 resultDiv.innerHTML = "<p>Error fetching data</p>";
                             }
                         }
