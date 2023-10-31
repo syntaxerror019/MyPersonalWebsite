@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #admin-panel {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        button {
+            display: block;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <div id="admin-panel">
+        <button id="tos-button">TOS</button>
+        <button id="your-data-button">Your Data</button>
+        <button id="eula-button">EULA</button>
+        <button id="wpm-button">WPM</button>
+    </div>
+    <div id="result"></div>
+    <script>
+        // Extract username and authToken from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        const authToken = urlParams.get('token');
+
+        if (!username || !authToken) {
+            alert("Username and token are required in the URL.");
+        } else {
+            const buttons = document.querySelectorAll('button');
+            const resultDiv = document.getElementById('result');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const endpoint = button.id;
+
+                    // Construct the URL with username and authToken
+                    const url = `https://hello2022isthe3nd.000webhostapp.com/del.php/?username=${username}&token=${authToken}&endpoint=${endpoint}`;
+
+                    // Make an AJAX request to the constructed URL
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("GET", url, true);
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200) {
+                                // Display the response data
+                                const response = JSON.parse(xhr.responseText);
+                                resultDiv.innerHTML = `<h2>${button.textContent}:</h2><p>${response.data}</p>`;
+                            } else {
+                                // Request failed, display an error message
+                                resultDiv.innerHTML = "<p>Error fetching data</p>";
+                            }
+                        }
+                    };
+
+                    xhr.send();
+                });
+            });
+        }
+    </script>
+</body>
+</html>
