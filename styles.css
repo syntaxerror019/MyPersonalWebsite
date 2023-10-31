@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400");
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400");
 
 *,
 *::before,
@@ -585,10 +586,33 @@ input[type="submit"]:hover {
     align-items: center;
 }
 
+.product {
+  
+    cursor: pointer;
+    background-color: var(--white-color-alt);
+    position: relative;
+    margin-bottom: 2rem; /* Add space between stacked projects */
+    padding: 2rem;
+    text-align: center;
+    transition: transform 4s ease-in-out; /* Add a subtle hover effect */
+}
 
 
 
-
+.product::before {
+    content: "";
+    background-image: linear-gradient(
+        to bottom,
+        hsla(29, 72%, 83%, 0.438),
+        hsla(9, 94%, 61%, 0.507)
+    );
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1; /* Place the gradient background behind the content */
+}
 
 .product h3 {
     font-size: 1.5rem;
@@ -680,3 +704,4 @@ ul, ol {
     
     /* Add any additional styles as needed */
 }
+  </style>
