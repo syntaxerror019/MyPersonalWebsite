@@ -7,31 +7,64 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: var(--bg-color);
+            transition: background-color 0.3s;
+            color: var(--text-color);
         }
 
         h1 {
             text-align: center;
+            margin-bottom: 20px;
         }
 
         #admin-panel {
             width: 50%;
             margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         button {
             display: block;
             margin: 10px;
             padding: 10px;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         #result {
             margin-top: 20px;
             border: 1px solid #ddd;
             padding: 10px;
+            background-color: var(--result-bg);
+            transition: background-color 0.3s;
+        }
+
+        .toggle-dark-mode {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
         }
     </style>
 </head>
 <body>
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <h1>Admin Panel</h1>
     <div id="admin-panel">
         <button id="tos-button">TOS</button>
@@ -74,6 +107,28 @@
                 });
             });
         }
+
+        // Dark mode toggle
+        let darkMode = false;
+
+        const toggleDarkMode = () => {
+            const root = document.documentElement;
+            darkMode = !darkMode;
+
+            if (darkMode) {
+                root.style.setProperty('--bg-color', '#111');
+                root.style.setProperty('--text-color', '#fff');
+                root.style.setProperty('--button-bg', '#444');
+                root.style.setProperty('--button-text', '#fff');
+                root.style.setProperty('--result-bg', '#222');
+            } else {
+                root.style.setProperty('--bg-color', '#fff');
+                root.style.setProperty('--text-color', '#333');
+                root.style.setProperty('--button-bg', '#007bff');
+                root.style.setProperty('--button-text', '#fff');
+                root.style.setProperty('--result-bg', '#f0f0f0');
+            }
+        };
     </script>
 </body>
 </html>
