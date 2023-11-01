@@ -81,7 +81,7 @@
         <button id="wpm-button">WPM</button>
     </div>
     <div id="result"></div>
-    <script>
+<script>
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');
     const authToken = urlParams.get('token');
@@ -106,34 +106,43 @@
                             const response = JSON.parse(xhr.responseText);
                             const data = response.data;
 
-                            // Split data into segments based on "Data1="
-                            const segments = data.split("Data1=");
-                            
-                            // Create a div for each segment and format it
                             resultDiv.innerHTML = '';
-                            segments.forEach(segment => {
-                                const segmentData = segment.split("\n");
-                                const date = segmentData.find(line => line.startsWith("Data3="));
 
-                                if (date) {
-                                    // Extract the date from "Data3={date}"
-                                    const formattedDate = date.replace("Data3=", "").trim();
-                                    const div = document.createElement("div");
-                                    div.innerHTML = `<h2>${formattedDate}</h2>`;
-                                    
-                                    // Create dropdowns for Data1 to Data5
-                                    for (let i = 1; i <= 5; i++) {
-                                        const dataKey = `Data${i}=`;
-                                        const dataValue = segmentData.find(line => line.startsWith(dataKey));
-                                        if (dataValue) {
-                                            const formattedData = dataValue.replace(dataKey, "").trim();
-                                            div.innerHTML += `<details><summary>${dataKey}</summary><p>${formattedData}</p></details>`;
+                            if (endpoint === "your-data-button") {
+                                // Display "Your Data" results as is
+                                resultDiv.innerHTML = `<h2>${button.textContent}:</h2><p>${data}</p>`;
+                            } else if (endpoint === "wpm-button") {
+                                // Split "WPM" results on every space
+                                const words = data.split(" ");
+                                resultDiv.innerHTML = `<h2>${button.textContent}:</h2>`;
+                                words.forEach(word => {
+                                    resultDiv.innerHTML += `<p>${word}</p>`;
+                                });
+                            } else {
+                                // Split data into segments based on "Data1="
+                                const segments = data.split("Data1=");
+                                segments.forEach(segment => {
+                                    const segmentData = segment.split("\n");
+                                    const date = segmentData.find(line => line.startsWith("Data3="));
+
+                                    if (date) {
+                                        const formattedDate = date.replace("Data3=", "").trim();
+                                        const div = document.createElement("div");
+                                        div.innerHTML = `<h2>${formattedDate}</h2>`;
+
+                                        for (let i = 1; i <= 5; i++) {
+                                            const dataKey = `Data${i}=`;
+                                            const dataValue = segmentData.find(line => line.startsWith(dataKey));
+                                            if (dataValue) {
+                                                const formattedData = dataValue.replace(dataKey, "").trim();
+                                                div.innerHTML += `<details><summary>${dataKey}</summary><p>${formattedData}</p></details>`;
+                                            }
                                         }
+
+                                        resultDiv.appendChild(div);
                                     }
-                                    
-                                    resultDiv.appendChild(div);
-                                }
-                            });
+                                });
+                            }
                         } else {
                             resultDiv.innerHTML = "<p>Error fetching data</p>";
                         }
@@ -167,6 +176,7 @@
         }
     };
 </script>
+
 
 
 </body>
