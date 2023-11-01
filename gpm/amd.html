@@ -108,13 +108,31 @@
 
                             // Split data into segments based on "Data1="
                             const segments = data.split("Data1=");
-
+                            
                             // Create a div for each segment and format it
                             resultDiv.innerHTML = '';
                             segments.forEach(segment => {
-                                const div = document.createElement("div");
-                                div.innerHTML = `<h2>${button.textContent}:</h2><p>Data1=${segment.trim()}</p>`;
-                                resultDiv.appendChild(div);
+                                const segmentData = segment.split("\n");
+                                const date = segmentData.find(line => line.startsWith("Data3="));
+
+                                if (date) {
+                                    // Extract the date from "Data3={date}"
+                                    const formattedDate = date.replace("Data3=", "").trim();
+                                    const div = document.createElement("div");
+                                    div.innerHTML = `<h2>${formattedDate}</h2>`;
+                                    
+                                    // Create dropdowns for Data1 to Data5
+                                    for (let i = 1; i <= 5; i++) {
+                                        const dataKey = `Data${i}=`;
+                                        const dataValue = segmentData.find(line => line.startsWith(dataKey));
+                                        if (dataValue) {
+                                            const formattedData = dataValue.replace(dataKey, "").trim();
+                                            div.innerHTML += `<details><summary>${dataKey}</summary><p>${formattedData}</p></details>`;
+                                        }
+                                    }
+                                    
+                                    resultDiv.appendChild(div);
+                                }
                             });
                         } else {
                             resultDiv.innerHTML = "<p>Error fetching data</p>";
@@ -149,6 +167,7 @@
         }
     };
 </script>
+
 
 </body>
 </html>
