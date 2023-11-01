@@ -82,61 +82,73 @@
     </div>
     <div id="result"></div>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('username');
-        const authToken = urlParams.get('token');
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('username');
+    const authToken = urlParams.get('token');
 
-        if (!username || !authToken) {
-            alert("Username and token are required in the URL.");
-        } else {
-            const buttons = document.querySelectorAll('button');
-            const resultDiv = document.getElementById('result');
+    if (!username || !authToken) {
+        alert("Username and token are required in the URL.");
+    } else {
+        const buttons = document.querySelectorAll('button');
+        const resultDiv = document.getElementById('result');
 
-            buttons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const endpoint = button.id;
-                    const url = `https://hello2022isthe3nd.000webhostapp.com/del.php/?username=${username}&token=${authToken}&endpoint=${endpoint}`;
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const endpoint = button.id;
+                const url = `https://hello2022isthe3nd.000webhostapp.com/del.php/?username=${username}&token=${authToken}&endpoint=${endpoint}`;
 
-                    const xhr = new XMLHttpRequest();
-                    xhr.open("GET", url, true);
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
 
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === 4) {
-                            if (xhr.status === 200) {
-                                const response = JSON.parse(xhr.responseText);
-                                resultDiv.innerHTML = `<h2>${button.textContent}:</h2><p>${response.data}</p>`;
-                            } else {
-                                resultDiv.innerHTML = "<p>Error fetching data</p>";
-                            }
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            const response = JSON.parse(xhr.responseText);
+                            const data = response.data;
+
+                            // Split data into segments based on "Data1="
+                            const segments = data.split("Data1=");
+
+                            // Create a div for each segment and format it
+                            resultDiv.innerHTML = '';
+                            segments.forEach(segment => {
+                                const div = document.createElement("div");
+                                div.innerHTML = `<h2>${button.textContent}:</h2><p>Data1=${segment.trim()}</p>`;
+                                resultDiv.appendChild(div);
+                            });
+                        } else {
+                            resultDiv.innerHTML = "<p>Error fetching data</p>";
                         }
-                    };
+                    }
+                };
 
-                    xhr.send();
-                });
+                xhr.send();
             });
+        });
+    }
+
+    // Dark mode toggle
+    let darkMode = false;
+
+    const toggleDarkMode = () => {
+        const root = document.documentElement;
+        darkMode = !darkMode;
+
+        if (darkMode) {
+            root.style.setProperty('--bg-color', '#111');
+            root.style.setProperty('--text-color', '#fff');
+            root.style.setProperty('--button-bg', '#444');
+            root.style.setProperty('--button-text', '#fff');
+            root.style.setProperty('--result-bg', '#222');
+        } else {
+            root.style.setProperty('--bg-color', '#fff');
+            root.style.setProperty('--text-color', '#333');
+            root.style.setProperty('--button-bg', '#007bff');
+            root.style.setProperty('--button-text', '#fff');
+            root.style.setProperty('--result-bg', '#f0f0f0');
         }
+    };
+</script>
 
-        // Dark mode toggle
-        let darkMode = false;
-
-        const toggleDarkMode = () => {
-            const root = document.documentElement;
-            darkMode = !darkMode;
-
-            if (darkMode) {
-                root.style.setProperty('--bg-color', '#111');
-                root.style.setProperty('--text-color', '#fff');
-                root.style.setProperty('--button-bg', '#444');
-                root.style.setProperty('--button-text', '#fff');
-                root.style.setProperty('--result-bg', '#222');
-            } else {
-                root.style.setProperty('--bg-color', '#fff');
-                root.style.setProperty('--text-color', '#333');
-                root.style.setProperty('--button-bg', '#007bff');
-                root.style.setProperty('--button-text', '#fff');
-                root.style.setProperty('--result-bg', '#f0f0f0');
-            }
-        };
-    </script>
 </body>
 </html>
