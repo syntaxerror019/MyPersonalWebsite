@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <style>
+        :root {
+            --bg-color-light: #fff;
+            --bg-color-dark: #111;
+            --text-color-light: #333;
+            --text-color-dark: #fff;
+            --button-bg-light: #007bff;
+            --button-bg-dark: #444;
+            --button-text-light: #fff;
+            --button-text-dark: #fff;
+            --result-bg-light: #f0f0f0;
+            --result-bg-dark: #222;
+        }
+
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -13,9 +26,9 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: var(--bg-color);
+            background-color: var(--bg-color-light);
             transition: background-color 0.3s;
-            color: var(--text-color);
+            color: var(--text-color-light);
         }
 
         h1 {
@@ -35,8 +48,8 @@
             display: block;
             margin: 10px;
             padding: 10px;
-            background-color: var(--button-bg);
-            color: var(--button-text);
+            background-color: var(--button-bg-light);
+            color: var(--button-text-light);
             border: none;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
@@ -46,7 +59,7 @@
             margin-top: 20px;
             border: 1px solid #ddd;
             padding: 10px;
-            background-color: var(--result-bg);
+            background-color: var(--result-bg-light);
             transition: background-color 0.3s;
         }
 
@@ -55,8 +68,8 @@
             top: 10px;
             right: 10px;
             padding: 5px;
-            background-color: var(--button-bg);
-            color: var(--button-text);
+            background-color: var(--button-bg-light);
+            color: var(--button-text-light);
             border: none;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
@@ -68,16 +81,8 @@
     <h1>Admin Panel</h1>
     <div id="admin-panel">
         <button id="tos-button">TOS</button>
-
-    <script type="text/javascript">
-        document.getElementById("tos-button").addEventListener("click", function() {
-            window.location.href = "https://github.com/smoke-wolf/GitHub-Package-Manager/blob/main/TOS.md";
-        });
-    </script>
         <button id="your-data-button">Your Data</button>
         <button id="eula-button">Your Usage Logs</button>
-       
-    </script>
         <button id="wpm-button">WPM</button>
     </div>
     <div id="result"></div>
@@ -162,22 +167,19 @@
         darkMode = !darkMode;
 
         if (darkMode) {
-            root.style.setProperty('--bg-color', '#111');
-            root.style.setProperty('--text-color', '#fff');
-            root.style.setProperty('--button-bg', '#444');
-            root.style.setProperty('--button-text', '#fff');
-            root.style.setProperty('--result-bg', '#222');
+            root.style.setProperty('--bg-color', var(--bg-color-dark));
+            root.style.setProperty('--text-color', var(--text-color-dark));
+            root.style.setProperty('--button-bg', var(--button-bg-dark));
+            root.style.setProperty('--button-text', var(--button-text-dark));
+            root.style.setProperty('--result-bg', var(--result-bg-dark));
         } else {
-            root.style.setProperty('--bg-color', '#fff');
-            root.style.setProperty('--text-color', '#333');
-            root.style.setProperty('--button-bg', '#007bff');
-            root.style.setProperty('--button-text', '#fff');
-            root.style.setProperty('--result-bg', '#f0f0f0');
+            root.style.setProperty('--bg-color', var(--bg-color-light));
+            root.style.setProperty('--text-color', var(--text-color-light));
+            root.style.setProperty('--button-bg', var(--button-bg-light));
+            root.style.setProperty('--button-text', var(--button-text-light));
+            root.style.setProperty('--result-bg', var(--result-bg-light));
         }
     };
 </script>
-
-
-
 </body>
 </html>
