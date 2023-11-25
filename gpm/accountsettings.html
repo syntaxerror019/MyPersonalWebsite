@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Account Settings</title>
+ <style>
+   :root {
+    --bg-color: #1e1e1e; /* Background color */
+    --primary-color: #ffa500; /* Primary color */
+    --text-color: #ffffff; /* Text color */
+    --input-bg: #333333; /* Input background color */
+    --input-border: #555555; /* Input border color */
+    --input-text: #ffffff; /* Input text color */
+    --button-bg: #ffa500; /* Button background color */
+    --button-text: #1e1e1e; /* Button text color */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.settings-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.settings-menu {
+    margin-bottom: 20px;
+}
+
+.settings-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.settings-menu ul li {
+    margin-bottom: 10px;
+}
+
+.settings-menu ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.settings-menu ul li a:hover {
+    background-color: var(--input-bg);
+    color: var(--button-bg);
+}
+
+.settings-content {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+</style>
+</head>
+<body>
+  <div class="settings-container">
+    <h1>Account Settings</h1>
+    <div class="settings-menu">
+      <ul>
+        <li><a href="#" id="changePassword">Change Password</a></li>
+        <li><a href="#" id="deleteAccount">Delete Account</a></li>
+      </ul>
+    </div>
+    <div class="settings-content" id="settingsContent">
+      <!-- Content will be loaded dynamically using AJAX -->
+    </div>
+  </div>
+
+  <script>document.addEventListener("DOMContentLoaded", function () {
+  const changePasswordLink = document.getElementById("changePassword");
+  const deleteAccountLink = document.getElementById("deleteAccount");
+  const settingsContent = document.getElementById("settingsContent");
+  const changePasswordForm = document.getElementById("changePasswordForm");
+
+  // Change Password AJAX call
+  changePasswordLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    // Redirecting to the specific URL for password change
+    window.location.href = 'https://maliq-barnard.vercel.app/gpm/ChangePassword.html';
+  });
+
+  // Delete Account AJAX call
+  deleteAccountLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    // Perform AJAX request to delete account endpoint
+    settingsContent.innerHTML = "<p>Are you sure you want to delete your account?</p>";
+  });
+});
+</script>
+</body>
+</html>
