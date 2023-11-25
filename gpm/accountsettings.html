@@ -85,26 +85,31 @@ h1 {
     </div>
   </div>
 
-  <script>document.addEventListener("DOMContentLoaded", function () {
-  const changePasswordLink = document.getElementById("changePassword");
-  const deleteAccountLink = document.getElementById("deleteAccount");
-  const settingsContent = document.getElementById("settingsContent");
-  const changePasswordForm = document.getElementById("changePasswordForm");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const changePasswordLink = document.getElementById("changePassword");
+      const deleteAccountLink = document.getElementById("deleteAccount");
+      const settingsContent = document.getElementById("settingsContent");
 
-  // Change Password AJAX call
-  changePasswordLink.addEventListener("click", function (event) {
-    event.preventDefault();
-    // Redirecting to the specific URL for password change
-    window.location.href = 'https://maliq-barnard.vercel.app/gpm/ChangePassword.html';
-  });
+      // Function to load content into settingsContent div
+      function loadContent(url) {
+        settingsContent.innerHTML = `<iframe src="${url}" frameborder="0" width="100%" height="500px"></iframe>`;
+      }
 
-  // Delete Account AJAX call
-  deleteAccountLink.addEventListener("click", function (event) {
-    event.preventDefault();
-    // Perform AJAX request to delete account endpoint
-    settingsContent.innerHTML = "<p>Are you sure you want to delete your account?</p>";
-  });
-});
-</script>
+      // Change Password AJAX call
+      changePasswordLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        const changePasswordURL = 'https://maliq-barnard.vercel.app/gpm/ChangePassword.html';
+        loadContent(changePasswordURL);
+      });
+
+      // Delete Account AJAX call
+      deleteAccountLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        const deleteAccountURL = 'https://maliq-barnard.vercel.app/gpm/deleteaccount.html';
+        loadContent(deleteAccountURL);
+      });
+    });
+  </script>
 </body>
 </html>
