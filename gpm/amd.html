@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>Your Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,18 +61,101 @@
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
         }
+      /* Color Palette */
+:root {
+    --bg-color: #1f1f1f; /* Background color */
+    --text-color: #e0e0e0; /* Text color */
+    --button-bg: #2979ff; /* Button background color */
+    --button-text: #ffffff; /* Button text color */
+    --result-bg: #333333; /* Result background color */
+    --accent-color: #ffca28; /* Accent color */
+}
+
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.dashboard {
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #0f5cc0; /* Darker shade for hover */
+}
+
+#result {
+    margin-top: 30px;
+    border: 1px solid #555;
+    padding: 20px;
+    background-color: var(--result-bg);
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.toggle-dark-mode {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
     </style>
 </head>
 <body>
     <button class="toggle-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    <h1>Admin Panel</h1>
+    <h1>Your Dashboard</h1>
     <div id="admin-panel">
+      
         <button id="tos-button">TOS</button>
           
     <script type="text/javascript">
         document.getElementById("tos-button").addEventListener("click", function() {
             window.location.href = "https://github.com/smoke-wolf/GitHub-Package-Manager/blob/main/TOS.md";
-        });</script>
+        });
+      </script>
       
       <button id="upload">upload git listing</button>
           
@@ -81,10 +164,18 @@
             window.location.href = "https://maliq-barnard.vercel.app/gpm/upload_listing.html";
         });
     </script>
+      
+      
+      <button id="as">Account Settings</button>
+          
+    <script type="text/javascript">
+        document.getElementById("as").addEventListener("click", function() {
+            window.location.href = "https://maliq-barnard.vercel.app/gpm/accountsettings.html";
+        });
+    </script>
+      
         <button id="your-data-button">Your Data</button>
         <button id="eula-button">Your Usage Logs</button>
-       
-    </script>
         <button id="wpm-button">WPM</button>
     </div>
     <div id="result"></div>
@@ -183,8 +274,5 @@
         }
     };
 </script>
-
-
-
 </body>
 </html>
