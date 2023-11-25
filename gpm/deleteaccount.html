@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>:root {
+    --bg-color: #1e1e1e; /* Background color */
+    --primary-color: #ffa500; /* Primary color */
+    --text-color: #ffffff; /* Text color */
+    --input-bg: #333333; /* Input background color */
+    --input-border: #555555; /* Input border color */
+    --input-text: #ffffff; /* Input text color */
+    --button-bg: #ffa500; /* Button background color */
+    --button-text: #1e1e1e; /* Button text color */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: var(--input-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid var(--input-border);
+    border-radius: 3px;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+}
+
+button[type="submit"] {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #ff8c00; /* Darker shade for hover */
+}
+.h-captcha {
+  margin-bottom: 20px;
+}
+
+ button[type="submit"]:disabled {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+  </style>
+  <title>Delete Account</title>
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
+</head>
+<body>
+  <h1>Delete Account</h1>
+  <form id="deleteAccountForm" action="https://hello2022isthe3nd.000webhostapp.com/DeleteAccount.php" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+    <div class="h-captcha" data-sitekey="bbc651f2-0bd8-4bb2-8cc7-a2a87e2f86f1" data-callback="enableSubmit"></div>
+    <button type="submit" id="submitButton" disabled>Delete Account</button>
+  </form>
+
+  <script>
+    // Function to enable the submit button after hCaptcha is solved
+    function enableSubmit() {
+      document.getElementById('submitButton').removeAttribute('disabled');
+    }
+
+    document.getElementById('deleteAccountForm').addEventListener('submit', function(event) {
+      const captchaResponse = document.querySelector('.h-captcha-response').value;
+      if (!captchaResponse) {
+        event.preventDefault();
+        alert('Please complete the CAPTCHA!');
+      }
+    });
+  </script>
+</body>
+</html>
